@@ -1,0 +1,2 @@
+- server.js copied from our candles-n-things repository
+- config folder copied from our candles-n-things repository
