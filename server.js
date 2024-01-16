@@ -1,5 +1,6 @@
 // Dependencies & Imports
 const express = require("express");
+const session = require("express-session");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
 const routes = require("./controllers");
@@ -10,6 +11,16 @@ const sequelize = require("./config/connections");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const sess = {
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+app.use(session(sess));
+
 
 // Default to Handlebars
 app.engine("handlebars", exphbs({}));
