@@ -1,10 +1,21 @@
 const router = require("express").Router();
+const { Post } = require("../models");
 
 // http://localhost:3001/
 router.get("/", async (req, res) => {
   try {
-    res.status(200).render("homepage");
+    const dbBlogPostData = await Post.findAll();
+    if (!dbBlogPostData) {
+      return res.status(404).json({ message: "Blog posts not found" });
+    }
+    const posts = dbBlogPostData.map((postList) =>
+      postList.get({ plain: true })
+    );
+    console.log(posts);
+
+    res.render("homepage", { posts });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
