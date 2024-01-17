@@ -2,6 +2,7 @@
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const hbs = exphbs.create({});
 const routes = require("./controllers");
 
@@ -12,6 +13,7 @@ const sequelize = require("./config/connections");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const sess = {
+  secret: "abc",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -20,7 +22,6 @@ const sess = {
   }),
 };
 app.use(session(sess));
-
 
 // Default to Handlebars
 app.engine("handlebars", hbs.engine);
@@ -36,4 +37,3 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Server running on port ${PORT} http://localhost:3001`);
   });
 });
-
