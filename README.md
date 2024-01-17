@@ -2,6 +2,7 @@
 - config folder copied from our candles-n-things repository
 - user password validation ref. 19-ins_middleware.
 - express-session middleware ref. 19-ins_middleware.
+- route for updating copied from stack overflow (https://stackoverflow.com/questions/54721808/how-do-i-update-blog-post-in-mongoose)
 
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time

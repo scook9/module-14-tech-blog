@@ -55,4 +55,29 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//route to update a post
+router.post("/update:id", (req, res) => {
+  const requestedId = req.params.id;
+  console.log(req.body);
+  Post.findOneAndUpdate({
+     user_username: requestedId                   // Query Part
+  },
+  {
+    $set: {
+       title: req.body.title,           // Fields which we need to update
+       content: req.body.content
+    }
+  },
+  { 
+     new: true                          // option part ( new: true will provide you updated data in response )
+  },(err, post) => {
+    if (!err) {
+      res.render("updatepost", {
+        title: post.title,
+        content: post.content
+      });
+    }
+  });
+});
+
 module.exports = router;
