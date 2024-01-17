@@ -1,0 +1,10 @@
+[
+  {
+    "username": "userOne",
+    "password": "supersecret"
+  },
+  {
+    "username": "userTwo",
+    "password": "superERRsecret"
+  }
+]

@@ -16,7 +16,7 @@ Post.init(
       allowNull: false,
     },
     author: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "User",

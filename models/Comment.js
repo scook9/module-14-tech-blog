@@ -12,11 +12,11 @@ Comment.init(
       autoIncrement: true,
     },
     post_id: {
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'post',
-        key: 'id',
+        model: "post",
+        key: "id",
       },
     },
     title: {
@@ -24,8 +24,12 @@ Comment.init(
       allowNull: false,
     },
     author: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
     date: {
       type: DataTypes.STRING,
@@ -43,4 +47,4 @@ Comment.init(
   }
 );
 
-module.exports = Post;
+module.exports = Comment;
