@@ -23,7 +23,7 @@ app.use(session(sess));
 
 
 // Default to Handlebars
-app.engine("handlebars", exphbs({}));
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -36,3 +36,4 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Server running on port ${PORT} http://localhost:3001`);
   });
 });
+
