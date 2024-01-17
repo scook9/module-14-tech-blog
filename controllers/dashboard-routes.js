@@ -3,7 +3,7 @@ const { Post, User, Comment } = require("../models");
 
 //get all posts for the logged in user
 // http://localhost:3001/dashboard
-router.get("/dashboard", async (req, res) => {
+router.get("/", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {
@@ -29,7 +29,7 @@ router.get("/dashboard", async (req, res) => {
 });
 
 //need to update to get a single post, id or other key
-router.get("/dashboard", async (req, res) => {
+router.get("/", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {

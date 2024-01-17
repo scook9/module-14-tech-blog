@@ -20,12 +20,22 @@ const displayLogin = async (event) => {
   console.log("login button clicked");
 };
 
+//should display dashboard.handlebars with all of the user's posts
+//GET/fetch from http://localhost:3001/dashboard
 const displayDashboard = async (event) => {
   event.preventDefault();
-
-  console.log("dashboard button clicked");
+  const response = await fetch("/dashboard", {
+    method: "GET",
+  });
+  console.log(response);
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to load dashboard");
+  }
+  //console.log("dashboard button clicked");
 };
 
 homeButtonEl.addEventListener("click", displayHomepage);
 loginButtonEl.addEventListener("click", displayLogin);
-dashboardEl.addEventListener("click", displayDashboard);
+dashboardButtonEl.addEventListener("click", displayDashboard);
