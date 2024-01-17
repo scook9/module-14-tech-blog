@@ -23,10 +23,6 @@ Post.init(
         key: "id",
       },
     },
-    date: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
