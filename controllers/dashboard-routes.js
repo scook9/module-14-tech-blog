@@ -55,12 +55,14 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+// http://localhost:3001/dashboard
 //route to update a post
-router.post("/update:id", (req, res) => {
+router.post("/:id", (req, res) => {
   const requestedId = req.params.id;
   console.log(req.body);
   Post.findOneAndUpdate({
-     user_username: requestedId                   // Query Part
+     id: requestedId                   // Query Part
   },
   {
     $set: {
@@ -72,10 +74,7 @@ router.post("/update:id", (req, res) => {
      new: true                          // option part ( new: true will provide you updated data in response )
   },(err, post) => {
     if (!err) {
-      res.render("updatepost", {
-        title: post.title,
-        content: post.content
-      });
+      res.render("updatepost", {post});
     }
   });
 });
