@@ -23,13 +23,14 @@ router.get("/", async (req, res) => {
         .status(200)
         .render("dashboard", { posts, loggedIn: req.session.loggedIn });
     } catch (err) {
+      console.log("error is in dashboard route");
       res.status(500).json(err);
     }
   }
 });
 
-//need to update to get a single post, id or other key
-router.get("/", async (req, res) => {
+//need to update to get a single post, id or other key, id to change
+router.get("/:id", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {

@@ -5,6 +5,7 @@ router.get("/", async (req, res) => {
   try {
     res.status(200).render();
   } catch (err) {
+    console.log("error is in login route");
     res.status(500).json(err);
   }
 });
