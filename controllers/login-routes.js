@@ -3,7 +3,7 @@ const router = require("express").Router();
 // http://localhost:3001/login
 router.get("/", async (req, res) => {
   try {
-    res.status(200).render();
+    res.status(200).render("login");
   } catch (err) {
     console.log("error is in login route");
     res.status(500).json(err);
