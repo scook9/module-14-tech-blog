@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Sequelize } = require("sequelize");
 const { Post } = require("../../models");
 
+// http://localhost:3001/
 //route to create a blog post and show post on homepage
 router.post("/", async (req, res) => {
   try {
