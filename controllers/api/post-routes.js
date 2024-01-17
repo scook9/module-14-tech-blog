@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Sequelize } = require("sequelize");
-const { User, Post } = require("../../models");
+const { Post } = require("../../models");
 
 //route to create a blog post and show post on homepage
 router.post("/", async (req, res) => {
