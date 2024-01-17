@@ -36,6 +36,7 @@ const displayDashboard = async (event) => {
   //console.log("dashboard button clicked");
 };
 
+//need event listener for submit button on login page
 homeButtonEl.addEventListener("click", displayHomepage);
 loginButtonEl.addEventListener("click", displayLogin);
 dashboardButtonEl.addEventListener("click", displayDashboard);
