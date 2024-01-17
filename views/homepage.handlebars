@@ -1,36 +1,19 @@
 <div class="container">
   <h2 class="my-4">Recent Posts</h2>
   <div class="row">
+    {{#each posts as |post|}}
+    
       <div class="col-md-4 mb-4">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Blog Post 1</h5>
-            <p class="card-text">With supporting text below as a natural lead-in
-              to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="post-title">{{post.title}}</h5>
+            <p class="post-author-id">Author id: {{post.author_id}}</p>
+            <p class="post-content">{{post.content}}</p>
+            <a href="#" class="btn btn-primary">View Comments</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Blog Post 2</h5>
-            <p class="card-text">With supporting text below as a natural lead-in
-              to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Blog Post 3</h5>
-            <p class="card-text">With supporting text below as a natural lead-in
-              to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+    {{/each}}
     </div>
   </div>
 </div>
