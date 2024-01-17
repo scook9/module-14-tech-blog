@@ -23,17 +23,13 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
+    author_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "user",
         key: "id",
       },
-    },
-    date: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     content: {
       type: DataTypes.TEXT,

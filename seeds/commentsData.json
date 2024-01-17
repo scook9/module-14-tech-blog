@@ -2,15 +2,15 @@
   {
     "post_id": 1,
     "title": "the test was alright",
-    "author": 2,
-    "date": "1/16/2024",
+    "author_id": 1,
+
     "content": "this is my comment on test #1"
   },
   {
     "post_id": 2,
     "title": "the test was alright",
-    "author": 2,
-    "date": "1/16/2024",
+    "author_id": 1,
+
     "content": "this is my comment on test #2"
   }
 ]
