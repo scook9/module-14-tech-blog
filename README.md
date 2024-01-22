@@ -38,6 +38,9 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 
 TODO:
+
+-!!need authentication login to test post routes
+
 -check password method on user model
 -sign up functionality
 -authenticate username and password input from login screen
