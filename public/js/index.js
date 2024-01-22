@@ -8,9 +8,6 @@ const homeFooter = document.querySelector("#home-footer");
 const loginFooter = document.querySelector("#login-footer");
 const dashboardFooter = document.querySelector("#dashboard-footer");
 
-console.log("js linked");
-
-//currently testing on homepage, see if we can navigate to a different page first
 const displayHomepage = async (event) => {
   event.preventDefault();
   const response = await fetch("/", {
@@ -21,7 +18,6 @@ const displayHomepage = async (event) => {
   } else {
     alert("Failed to load homepage");
   }
-  //console.log("home button clicked");
 };
 
 const displayLogin = async (event) => {
@@ -34,14 +30,14 @@ const displayLogin = async (event) => {
   } else {
     alert("Failed to load login page");
   }
-
-  //console.log("login button clicked");
 };
 
 //should display dashboard.handlebars with all of the user's posts
 //GET/fetch from http://localhost:3001/dashboard
+//body of the GET request is undefined, how to get session id stored from the user route? req is undefined in this file
 const displayDashboard = async (event) => {
   event.preventDefault();
+
   const response = await fetch("/dashboard", {
     method: "GET",
   });
@@ -51,7 +47,6 @@ const displayDashboard = async (event) => {
   } else {
     alert("Failed to load dashboard");
   }
-  //console.log("dashboard button clicked");
 };
 
 //need event listener for submit button on login page
