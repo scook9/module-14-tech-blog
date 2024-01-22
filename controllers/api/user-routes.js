@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-// ****WHERE CODE BREAKS FOR LOGIN
+// ****WHERE CODE BREAKS FOR LOGIN maybe something to do with the session
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
