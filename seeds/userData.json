@@ -1,10 +1,10 @@
 [
   {
-    "username": "userOne",
+    "username": "userOne@aol.com",
     "password": "supersecret"
   },
   {
-    "username": "userTwo",
+    "username": "userTwo@aol.com",
     "password": "superERRsecret"
   }
 ]
