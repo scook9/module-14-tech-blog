@@ -44,7 +44,7 @@ router.get("/:id", async (req, res) => {
         },
       ],
     });
-    const OnePost = aPost.map((post) => post.get({ plain: true }));
+    const OnePost = Post.map((post) => post.get({ plain: true }));
     try {
       res
         .status(200)
@@ -53,30 +53,6 @@ router.get("/:id", async (req, res) => {
       res.status(500).json(err);
     }
   }
-});
-
-
-// http://localhost:3001/dashboard
-//route to update a post
-router.post("/:id", (req, res) => {
-  const requestedId = req.params.id;
-  console.log(req.body);
-  Post.findOneAndUpdate({
-     id: requestedId                   // Query Part
-  },
-  {
-    $set: {
-       title: req.body.title,           // Fields which we need to update
-       content: req.body.content
-    }
-  },
-  { 
-     new: true                          // option part ( new: true will provide you updated data in response )
-  },(err, post) => {
-    if (!err) {
-      res.render("updatepost", {post});
-    }
-  });
 });
 
 module.exports = router;
