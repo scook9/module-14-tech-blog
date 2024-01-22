@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   } else {
     const allMyPost = await Post.findAll({
       where: {
-        UserId: req.session.User.id,
+        user_id: req.session.id,
       },
       include: [
         {
@@ -57,31 +57,32 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
-
 // http://localhost:3001/dashboard/:id
 //route to update a post
 router.put("/:id", (req, res) => {
   const requestedId = req.params.id;
   console.log(req.body);
-  Post.findOneAndUpdate({
-     id: requestedId                   // Query Part
-  },
-  {
-    $set: {
-       title: req.body.title,           // Fields which we need to update
-       content: req.body.content
+  Post.findOneAndUpdate(
+    {
+      id: requestedId, // Query Part
+    },
+    {
+      $set: {
+        title: req.body.title, // Fields which we need to update
+        content: req.body.content,
+      },
+    },
+    {
+      new: true, // option part ( new: true will provide you updated data in response )
+    },
+    (err, post) => {
+      if (!err) {
+        res
+          .status(200)
+          .render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
+      }
     }
-  },
-  { 
-     new: true                          // option part ( new: true will provide you updated data in response )
-  },(err, post) => {
-    if (!err) {
-      res.status(200).render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
-
-    }
-  });
+  );
 });
-
 
 module.exports = router;

@@ -19,6 +19,7 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 // http://localhost:3001/api/user/login
 router.post("/login", async (req, res) => {
   try {
@@ -36,7 +37,7 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-// ****WHERE CODE BREAKS FOR LOGIN maybe something to do with the session
+
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -48,11 +49,12 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.id = dbUserData.id;
       console.log(
         "File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie",
         req.session.cookie
       );
-
+      console.log(req.session);
       res
         .status(200)
         .json({ user: dbUserData, message: "You are now logged in!" });
