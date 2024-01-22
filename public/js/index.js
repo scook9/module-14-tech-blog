@@ -4,6 +4,9 @@
 const homeButtonEl = document.querySelector("#home");
 const loginButtonEl = document.querySelector("#login");
 const dashboardButtonEl = document.querySelector("#dashboard");
+const homeFooter = document.querySelector("#home-footer");
+const loginFooter = document.querySelector("#login-footer");
+const dashboardFooter = document.querySelector("#dashboard-footer");
 
 console.log("js linked");
 
@@ -53,5 +56,8 @@ const displayDashboard = async (event) => {
 
 //need event listener for submit button on login page
 homeButtonEl.addEventListener("click", displayHomepage);
+homeFooter.addEventListener("click", displayHomepage);
 loginButtonEl.addEventListener("click", displayLogin);
+loginFooter.addEventListener("click", displayLogin);
 dashboardButtonEl.addEventListener("click", displayDashboard);
+dashboardFooter.addEventListener("click", displayDashboard);
