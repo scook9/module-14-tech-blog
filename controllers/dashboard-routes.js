@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   } else {
     const allMyPost = await Post.findAll({
       where: {
-        author_username: req.session.author_username,
+        UserId: req.session.User.id,
       },
       include: [
         {
@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
   } else {
     const aPost = await Post.findOne({
       where: {
-        author_username: req.session.author_username,
+        id: req.params.id,
       },
       include: [
         {
@@ -44,7 +44,9 @@ router.get("/:id", async (req, res) => {
         },
       ],
     });
-    const OnePost = Post.map((post) => post.get({ plain: true }));
+
+    const OnePost = aPost ? aPost.get({ plain: true }) : null;
+
     try {
       res
         .status(200)
@@ -54,5 +56,32 @@ router.get("/:id", async (req, res) => {
     }
   }
 });
+
+
+
+// http://localhost:3001/dashboard/:id
+//route to update a post
+router.put("/:id", (req, res) => {
+  const requestedId = req.params.id;
+  console.log(req.body);
+  Post.findOneAndUpdate({
+     id: requestedId                   // Query Part
+  },
+  {
+    $set: {
+       title: req.body.title,           // Fields which we need to update
+       content: req.body.content
+    }
+  },
+  { 
+     new: true                          // option part ( new: true will provide you updated data in response )
+  },(err, post) => {
+    if (!err) {
+      res.status(200).render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
+
+    }
+  });
+});
+
 
 module.exports = router;
