@@ -2,14 +2,14 @@
   {
     "post_id": 1,
     "title": "the test was alright",
-    "author_username": "userOne",
+    "user_id": 1,
 
     "content": "this is my comment on test #1"
   },
   {
     "post_id": 2,
     "title": "the test was alright",
-    "author_username": "userTwo",
+    "user_id": 1,
 
     "content": "this is my comment on test #2"
   }

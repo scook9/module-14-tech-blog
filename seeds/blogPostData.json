@@ -1,13 +1,13 @@
 [
   {
     "title": "test 1",
-    "author_username": "userOne",
+    "user_id": 1,
 
     "content": "this is my review of test 1...."
   },
   {
     "title": "test 2",
-    "author_username": "userTwo",
+    "user_id": 2,
 
     "content": "this is my review of test 2..."
   }
