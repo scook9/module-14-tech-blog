@@ -44,7 +44,9 @@ router.get("/:id", async (req, res) => {
         },
       ],
     });
+
     const OnePost = aPost ? aPost.get({ plain: true }) : null;
+
     try {
       res
         .status(200)
@@ -56,9 +58,10 @@ router.get("/:id", async (req, res) => {
 });
 
 
+
 // http://localhost:3001/dashboard/:id
 //route to update a post
-router.post("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const requestedId = req.params.id;
   console.log(req.body);
   Post.findOneAndUpdate({
@@ -79,5 +82,6 @@ router.post("/:id", (req, res) => {
     }
   });
 });
+
 
 module.exports = router;
