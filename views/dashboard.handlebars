@@ -1,29 +1,18 @@
 <div class="container">
-    <h2 class="my-4">My Dashboard</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Post 1</h5>
-                    <p class="card-text">Content for post 1.</p>
-                </div>
-            </div>
+  <h2 class="my-4">My Dashboard</h2>
+  <div class="row">
+    {{#each posts as |post|}}
+
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="post-title">{{post.title}}</h5>
+            <p class="post-author-id">Author: {{post.author_username}}</p>
+            <p class="post-content">{{post.content}}</p>
+            <a href="#" class="btn btn-primary">View Comments</a>
+          </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Post 2</h5>
-                    <p class="card-text">Content for post 2.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Post 3</h5>
-                    <p class="card-text">Content for post 3.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+      </div>
+    {{/each}}
+  </div>
 </div>
