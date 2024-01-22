@@ -10,14 +10,29 @@ console.log("js linked");
 //currently testing on homepage, see if we can navigate to a different page first
 const displayHomepage = async (event) => {
   event.preventDefault();
-
-  console.log("home button clicked");
+  const response = await fetch("/", {
+    method: "GET",
+  });
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert("Failed to load homepage");
+  }
+  //console.log("home button clicked");
 };
 
 const displayLogin = async (event) => {
   event.preventDefault();
+  const response = await fetch("/login", {
+    method: "GET",
+  });
+  if (response.ok) {
+    document.location.replace("/login");
+  } else {
+    alert("Failed to load login page");
+  }
 
-  console.log("login button clicked");
+  //console.log("login button clicked");
 };
 
 //should display dashboard.handlebars with all of the user's posts
