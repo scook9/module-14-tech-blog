@@ -8,6 +8,9 @@ const homeFooter = document.querySelector("#home-footer");
 const loginFooter = document.querySelector("#login-footer");
 const dashboardFooter = document.querySelector("#dashboard-footer");
 
+const createButtonEl = document.querySelector("#create");
+const editPostButtonEl = document.querySelector("#edit");
+
 const displayHomepage = async (event) => {
   event.preventDefault();
   const response = await fetch("/", {
@@ -49,6 +52,34 @@ const displayDashboard = async (event) => {
   }
 };
 
+const displayCreatePage = async (event) => {
+  event.preventDefault();
+
+  const response = await fetch("/create", {
+    method: "GET",
+  });
+  console.log(response);
+  if (response.ok) {
+    document.location.replace("/create");
+  } else {
+    alert("Failed to load Create page");
+  }
+};
+
+const displayEditPage = async (event) => {
+  event.preventDefault();
+
+  const response = await fetch("/update", {
+    method: "GET",
+  });
+  console.log(response);
+  if (response.ok) {
+    document.location.replace("/update");
+  } else {
+    alert("Failed to load Update page");
+  }
+};
+
 //need event listener for submit button on login page
 homeButtonEl.addEventListener("click", displayHomepage);
 homeFooter.addEventListener("click", displayHomepage);
@@ -56,3 +87,6 @@ loginButtonEl.addEventListener("click", displayLogin);
 loginFooter.addEventListener("click", displayLogin);
 dashboardButtonEl.addEventListener("click", displayDashboard);
 dashboardFooter.addEventListener("click", displayDashboard);
+
+createButtonEl.addEventListener("click", displayCreatePage);
+editPostButtonEl.addEventListener("click", displayEditPage);
