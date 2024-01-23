@@ -13,12 +13,6 @@ const createAPost = async (event) => {
                 post_content
             }),
         });
-    
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert(response.statusText);
-        }
     };
     
     document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
