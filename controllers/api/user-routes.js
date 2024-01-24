@@ -13,7 +13,8 @@ router.post("/", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.id = dbUserData.id;
+      req.session.userId = dbUserData.dataValues.id;
+      console.log(req.session.id);
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -31,7 +32,6 @@ router.post("/login", async (req, res) => {
         username: req.body.username,
       },
     });
-    console.log(dbUserData);
 
     if (!dbUserData) {
       res
@@ -51,7 +51,9 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.id = dbUserData.id;
+      req.session.userId = dbUserData.dataValues.id;
+      console.log("line 55 user-routes.js");
+      console.log(req.session.userId);
       console.log(
         "File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie",
         req.session.cookie

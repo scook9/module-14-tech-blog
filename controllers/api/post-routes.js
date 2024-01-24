@@ -6,12 +6,9 @@ const { Post } = require("../../models");
 //route to create a blog post and show post on homepage
 router.post("/", async (req, res) => {
   try {
-    console.log("hit post post route");
-    console.log(req.session); //this has no id key, but next line gives a value
-    console.log(req.session.id); //getting hashed value, why??? should be int
     const dbSingleUserPost = await Post.create({
       title: req.body.title,
-      user_id: req.session.id,
+      user_id: req.session.userId,
       content: req.body.content,
     });
     if (dbSingleUserPost) {
