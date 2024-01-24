@@ -44,6 +44,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // http://localhost:3001/api/post/blog/:id
+
 router.delete("/blog/:id", async (req, res) => {
   try {
     const { id } = req.params;
