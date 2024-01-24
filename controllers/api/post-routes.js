@@ -2,23 +2,26 @@ const router = require("express").Router();
 const { Sequelize } = require("sequelize");
 const { Post } = require("../../models");
 
-// http://localhost:3001/
+// http://localhost:3001/api/post
 //route to create a blog post and show post on homepage
 router.post("/", async (req, res) => {
   try {
+    console.log("hit post post route");
+    console.log(req.session);
     const dbSingleUserPost = await Post.create({
       title: req.body.title,
-      author: req.body.author,
+      user_id: req.session.id,
       content: req.body.content,
     });
     if (dbSingleUserPost) {
-      res.status(200).render("homepage").json(dbSingleUserPost);
+      res.status(200).json(dbSingleUserPost);
     }
   } catch {
     res.status(500).json(err);
   }
 });
 
+// http://localhost:3001/api/post/:id
 //route to update blog post
 router.put("/:id", async (req, res) => {
   try {
@@ -40,6 +43,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// http://localhost:3001/api/post/blog/:id
 router.delete("/blog/:id", async (req, res) => {
   try {
     const { id } = req.params;

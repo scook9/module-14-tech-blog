@@ -1,18 +1,25 @@
-
-
+const titleEl = document.querySelector("#post-title");
+const contentEl = document.querySelector("#post-content");
+const postButton = document.querySelector("#post-button");
+console.log("js linked");
 
 const createAPost = async (event) => {
-    event.preventDefault();
-        const title = document.querySelector('input[name="post-title"]').value;
-        const post_content = document.querySelector('textarea[name="post-content"]').value.trim();
-    
-        const response = await fetch(`/api/posts`, {
-            method: 'POST',
-            body: JSON.stringify({
-                title,
-                post_content
-            }),
-        });
-    };
-    
-    document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  event.preventDefault();
+
+  const title = titleEl.value.trim();
+  const content = contentEl.value.trim();
+  const response = await fetch(`/api/post`, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      content,
+    }),
+  });
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert("Failed to create post");
+  }
+};
+
+postButton.addEventListener("submit", createAPost);
