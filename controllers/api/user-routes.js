@@ -2,6 +2,7 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const { User } = require("../../models");
 
+//create new user
 // http://localhost:3001/api/user
 router.post("/", async (req, res) => {
   try {
@@ -12,7 +13,7 @@ router.post("/", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-
+      req.session.id = dbUserData.id;
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -20,6 +21,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//login as existing user
 // http://localhost:3001/api/user/login
 router.post("/login", async (req, res) => {
   try {
@@ -54,7 +56,7 @@ router.post("/login", async (req, res) => {
         "File: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie",
         req.session.cookie
       );
-      console.log(req.session);
+
       res
         .status(200)
         .json({ user: dbUserData, message: "You are now logged in!" });
