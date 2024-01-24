@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
   try {
     console.log("hit post post route");
     console.log(req.session);
+    console.log(req.session.id);
     const dbSingleUserPost = await Post.create({
       title: req.body.title,
       user_id: req.session.id,
@@ -16,7 +17,7 @@ router.post("/", async (req, res) => {
     if (dbSingleUserPost) {
       res.status(200).json(dbSingleUserPost);
     }
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
