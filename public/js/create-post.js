@@ -8,13 +8,18 @@ const createAPost = async (event) => {
 
   const title = titleEl.value.trim();
   const content = contentEl.value.trim();
+
+  console.log("have title and content");
+
   const response = await fetch(`/api/post`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title,
       content,
     }),
   });
+
   if (response.ok) {
     document.location.replace("/");
   } else {
@@ -22,4 +27,5 @@ const createAPost = async (event) => {
   }
 };
 
-postButton.addEventListener("submit", createAPost);
+//postButton.addEventListener("submit", createAPost);
+postButton.addEventListener("click", createAPost);
