@@ -3,12 +3,53 @@
     padding: 0;
     box-sizing: border-box;
   }
+
   body {
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     display: block;
     align-items: center;
     justify-content: center;
+  }
+  .card {
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px silver;
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  #post-title,
+  #post-content {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  #post-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #post-button:hover {
+    background-color: darkblue;
   }
   
   #footer-list {
@@ -24,10 +65,12 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     text-align: right;
   }
+
   .site-footer hr {
     border-top-color: #bbb;
     opacity: 0.5;
   }
+
   .site-footer h6 {
     color: #fff;
     font-size: 16px;
@@ -35,9 +78,11 @@
     margin-top: 5px;
     letter-spacing: 2px;
   }
+
   .site-footer a:hover {
     color: #fff;
   }
+
   .site-footer a {
     width: 40px;
     height: 40px;
