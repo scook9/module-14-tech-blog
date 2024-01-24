@@ -21,20 +21,26 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/create", async (req, res) => {
-  try {
-    res.render("createpost");
-  }
-  catch {
-    res.status(500).json(err);
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    try {
+      res.render("createpost");
+    } catch {
+      res.status(500).json(err);
+    }
   }
 });
 
 router.get("/update", async (req, res) => {
-  try {
-    res.render("updatepost");
-  }
-  catch {
-    res.status(500).json(err);
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    try {
+      res.render("updatepost");
+    } catch {
+      res.status(500).json(err);
+    }
   }
 });
 
