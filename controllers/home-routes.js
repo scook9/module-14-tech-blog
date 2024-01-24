@@ -44,4 +44,16 @@ router.get("/update", async (req, res) => {
   }
 });
 
+router.get("/viewPost", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    try {
+      res.render("viewpost");
+    } catch {
+      res.status(500).json(err);
+    }
+  }
+});
+
 module.exports = router;
