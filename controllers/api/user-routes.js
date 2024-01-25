@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
-module.exports = router;
+
 
 
 
@@ -77,12 +77,19 @@ module.exports = router;
 
 
 // route to log out
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
+router.delete('/logout', (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        res.status(400).send('Unable to log out')
+      } else {
       res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+    }});
+}});
+
+
+
+
+
+
+module.exports = router;
