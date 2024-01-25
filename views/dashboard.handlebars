@@ -9,12 +9,16 @@
             <h5 class="post-title">{{post.title}}</h5>
             <p class="post-author-id">Author: {{post.author_username}}</p>
             <p class="post-content">{{post.content}}</p>
-            <a href="#" id="view-post" class="btn btn-primary">View Post</a>
+            <a
+              href="/dashboard/{{post.id}}"
+              id="view-post"
+              class="btn btn-primary"
+            >View Post</a>
           </div>
         </div>
       </div>
     {{/each}}
-    <button class="button" id="view-post">View Post</button>
+
   </div>
 </div>
 <script src="/js/dashBoard.js"></script>
