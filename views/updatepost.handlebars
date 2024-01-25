@@ -6,23 +6,19 @@
       <form action="process_post.php" method="post">
         <div class="mb-3">
           <label for="postTitle" class="form-label">Title:</label>
-          <input
-            type="text"
+          <textarea
             class="form-control"
-            id="postTitle"
-            name="postTitle"
-            value={{post.title}}
-          />
+            id="postContent"
+            rows="3"
+          >{{onePost.title}}</textarea>
         </div>
         <div class="mb-3">
           <label for="postContent" class="form-label">Content:</label>
           <textarea
             class="form-control"
             id="postContent"
-            name="postContent"
             rows="3"
-            value={{post.content}}
-          >To be populated with the post.content</textarea>
+          >{{onePost.content}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">update a post!</button>
         <a href="#" id="go-back" class="btn btn-primary">Back to Post</a>
