@@ -71,30 +71,30 @@ router.get("/update/:id", async (req, res) => {
   }
 });
 
-// router.put("update/:id", (req, res) => {
-//   const requestedId = req.params.userId;
-//   console.log(req.body);
-//   Post.findOneAndUpdate(
-//     {
-//       id: requestedId, // Query Part
-//     },
-//     {
-//       $set: {
-//         title: req.body.title, // Fields which we need to update
-//         content: req.body.content,
-//       },
-//     },
-//     {
-//       new: true, // option part ( new: true will provide you updated data in response )
-//     },
-//     (err, post) => {
-//       if (!err) {
-//         res
-//           .status(200)
-//           .render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
-//       }
-//     }
-//   );
-// });
+router.put("/update/:id", (req, res) => {
+  const requestedId = req.params.Id;
+  console.log(req.body);
+  Post.findOneAndUpdate(
+    {
+      id: requestedId, // Query Part
+    },
+    {
+      $set: {
+        title: req.body.title, // Fields which we need to update
+        content: req.body.content,
+      },
+    },
+    {
+      new: true, // option part ( new: true will provide you updated data in response )
+    },
+    (err, post) => {
+      if (!err) {
+        res
+          .status(200)
+          .render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
+      }
+    }
+  );
+});
 
 module.exports = router;
