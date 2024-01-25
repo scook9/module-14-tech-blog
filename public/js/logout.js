@@ -4,12 +4,14 @@ const submitButtonEl = document.querySelector("#logout");
 const logout = async () => {
     const response = await fetch('/logout', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
     });
-  
-    if (response.ok) {
+    console.log('here')
+    if (response) {
       document.location.replace('/');
+      alert('Logging out..Bye!');
     } else {
-      alert('Failed to log out.');
+      alert('Could not log out.');
     }
   };
   
