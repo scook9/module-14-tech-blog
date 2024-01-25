@@ -5,12 +5,30 @@
   }
 
   body {
+    margin: 20px;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     display: block;
     align-items: center;
     justify-content: center;
   }
+
+  .form-label {
+    color: #333;
+  }
+
+  .form-control {
+    width: 20%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
   .card {
     border: 1px solid lightgray;
     border-radius: 8px;
