@@ -13,6 +13,7 @@
     justify-content: center;
   }
 
+
   .form-label {
     color: #333;
   }
@@ -28,7 +29,7 @@
     background-color: #007bff;
     color: #fff;
   }
-  
+
   .card {
     border: 1px solid lightgray;
     border-radius: 8px;
