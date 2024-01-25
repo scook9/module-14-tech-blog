@@ -40,13 +40,9 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 
 TODO:
 
--!!need authentication login to test post routes
 
--check password method on user model
--sign up functionality
 -authenticate username and password input from login screen
 -logic to display logout button when logged in(event listener)
--display user db data to dashboard w/associated comments
--front end to handle post and comment creation
--event listeners on each Post card in dashboard, that brings you to a page with the selected post and comments
+-comments on post page
+-front end to handle comment creation
 -better seed data
