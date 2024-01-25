@@ -34,16 +34,14 @@ router.get("/:id", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {
-    const aPost = await Post.findByPk(
-      req.session.userId
-    );
+    const aPost = await Post.findByPk(req.params.id);
 
-    const OnePost = aPost.get({ plain: true });
+    const onePost = aPost.get({ plain: true });
 
     try {
       res
         .status(200)
-        .render("viewPost", { OnePost, loggedIn: req.session.loggedIn });
+        .render("viewPost", { onePost, loggedIn: req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -52,30 +50,51 @@ router.get("/:id", async (req, res) => {
 
 // http://localhost:3001/dashboard/update/:id
 //route to update a post
-router.put("update/:id", (req, res) => {
-  const requestedId = req.params.id;
-  console.log(req.body);
-  Post.findOneAndUpdate(
-    {
-      id: requestedId, // Query Part
-    },
-    {
-      $set: {
-        title: req.body.title, // Fields which we need to update
-        content: req.body.content,
-      },
-    },
-    {
-      new: true, // option part ( new: true will provide you updated data in response )
-    },
-    (err, post) => {
-      if (!err) {
-        res
-          .status(200)
-          .render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
-      }
+
+router.get("/update/:id", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    const aPost = await Post.findByPk(req.params.id);
+    console.log("!!!!!!!!!");
+    console.log(aPost);
+
+    const onePost = aPost.get({ plain: true });
+
+    try {
+      res
+        .status(200)
+        .render("updatepost", { onePost, loggedIn: req.session.loggedIn });
+    } catch (err) {
+      res.status(500).json(err);
     }
-  );
+  }
 });
+
+// router.put("update/:id", (req, res) => {
+//   const requestedId = req.params.userId;
+//   console.log(req.body);
+//   Post.findOneAndUpdate(
+//     {
+//       id: requestedId, // Query Part
+//     },
+//     {
+//       $set: {
+//         title: req.body.title, // Fields which we need to update
+//         content: req.body.content,
+//       },
+//     },
+//     {
+//       new: true, // option part ( new: true will provide you updated data in response )
+//     },
+//     (err, post) => {
+//       if (!err) {
+//         res
+//           .status(200)
+//           .render("updatepost", { OnePost, loggedIn: req.session.loggedIn });
+//       }
+//     }
+//   );
+// });
 
 module.exports = router;
