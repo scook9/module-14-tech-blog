@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   } else {
     const allMyPost = await Post.findAll({
       where: {
-        user_id: req.session.id,
+        user_id: req.session.userId,
       },
       include: [
         {
@@ -34,32 +34,25 @@ router.get("/:id", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {
-    const aPost = await Post.findOne({
-      where: {
-        id: req.params.id,
-      },
-      include: [
-        {
-          model: Comment,
-        },
-      ],
-    });
+    const aPost = await Post.findByPk(
+      req.session.userId
+    );
 
-    const OnePost = aPost ? aPost.get({ plain: true }) : null;
+    const OnePost = aPost.get({ plain: true });
 
     try {
       res
         .status(200)
-        .render("dashboard", { OnePost, loggedIn: req.session.loggedIn });
+        .render("viewPost", { OnePost, loggedIn: req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
     }
   }
 });
 
-// http://localhost:3001/dashboard/:id
+// http://localhost:3001/dashboard/update/:id
 //route to update a post
-router.put("/:id", (req, res) => {
+router.put("update/:id", (req, res) => {
   const requestedId = req.params.id;
   console.log(req.body);
   Post.findOneAndUpdate(
