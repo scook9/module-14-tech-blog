@@ -1,13 +1,8 @@
-# module-14-tech-blog
-## Table of Contents
+# Module 14 - Tech Blog 
 
-1. [Description]()
-2. [Installation]()
-3. [Usage]()
-4. [Demo]()
-5. [Questions]()
+## Description
 
-## Descrption.
+Welcome to our Tech Blog! You can create an account, log in, and log out. While logged in, you are able to view 'my dashboard' and see only your posts. You can create a post, update a post, and save your post to the blog. When anyone is on the home page they will see all posts on the blog in general. 
 
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time
@@ -43,26 +38,44 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 
-## Installation Instructions.
-This application uses handlebars, CSS, Javascript, node.js,
+## Table of Contents
 
-## Usage Information.
+- [Installation]
+- [Usage]
+- [License]
+- [Contributing]
+- [Tests]
+- [Questions]
 
-## Demo.
+## Installation
+
+No installations required.
+
+## Usage
+
+Navigate to https://tech-blog-8675309-7fdcc372d423.herokuapp.com/
+
+## Contributing
+
+Laura Brown, Halden Kavanagh, Ethan Christ, Spencer Cook, and Erik Edin.
+
+## Tests
+
+No tests have been written.
 
 ## Questions
 
-## References
-- server.js copied from our candles-n-things repository
-- config folder copied from our candles-n-things repository
-- user password validation ref. 19-ins_middleware.
-- express-session middleware ref. 19-ins_middleware.
-- route for updating copied from stack overflow (https://stackoverflow.com/questions/54721808/how-do-i-update-blog-post-in-mongoose)
+Email us with further questions at
 
+Halden Kavanagh - haldenkav@gmail.com
 
-TODO:
--authenticate username and password input from login screen
--logic to display logout button when logged in(event listener)
--comments on post page
--front end to handle comment creation
--better seed data
+Spencer Cook - spencerrcook@hotmail.com
+
+Ethan Christ - ethanchrist02@gmail.com
+
+Laura Brown - laura_kessinger@yahoo.com
+
+Erik Edin - ekedin@gmail.com
+
+GitHub: [scook9](https://github.com/scook9/module-14-tech-blog)
+Repo: [module-14-tech-blog](https://github.com/module-14-tech-blog)
